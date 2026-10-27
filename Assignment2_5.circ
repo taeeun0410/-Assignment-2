@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="5.0.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v5.0.0(https://github.com/logisim-evolution/).
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Pin">
+      <a name="appearance" val="classic"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#FPArithmetic" name="4"/>
+  <lib desc="#Memory" name="5"/>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#TTL" name="7"/>
+  <lib desc="#TCL" name="8"/>
+  <lib desc="#Base" name="9"/>
+  <lib desc="#BFH-Praktika" name="10"/>
+  <lib desc="#Input/Output-Extra" name="11"/>
+  <lib desc="#Soc" name="12"/>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool map="Button2" name="Poke Tool"/>
+    <tool map="Button3" name="Menu Tool"/>
+    <tool map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool name="Poke Tool"/>
+    <tool name="Edit Tool"/>
+    <tool name="Wiring Tool"/>
+    <tool name="Text Tool"/>
+    <tool name="Image"/>
+    <sep/>
+    <tool name="Pin"/>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="type" val="output"/>
+    </tool>
+    <sep/>
+    <tool name="NOT Gate"/>
+    <tool name="AND Gate"/>
+    <tool name="OR Gate"/>
+    <tool name="XOR Gate"/>
+    <tool name="NAND Gate"/>
+    <tool name="NOR Gate"/>
+    <sep/>
+    <tool name="D Flip-Flop"/>
+    <tool name="Register"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="main"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(250,200)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="label" val="en"/>
+    </comp>
+    <comp lib="0" loc="(250,90)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="13"/>
+    </comp>
+    <comp lib="0" loc="(590,70)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="radix" val="16"/>
+      <a name="type" val="output"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(640,140)" name="Splitter">
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
+    </comp>
+    <comp lib="6" loc="(740,70)" name="7-Segment Display"/>
+    <comp loc="(560,120)" name="Assignment2_5"/>
+    <wire from="(250,200)" to="(340,200)"/>
+    <wire from="(250,90)" to="(260,90)"/>
+    <wire from="(260,100)" to="(340,100)"/>
+    <wire from="(260,90)" to="(260,100)"/>
+    <wire from="(340,100)" to="(340,120)"/>
+    <wire from="(340,140)" to="(340,200)"/>
+    <wire from="(560,120)" to="(590,120)"/>
+    <wire from="(560,140)" to="(640,140)"/>
+    <wire from="(590,70)" to="(590,120)"/>
+    <wire from="(660,100)" to="(690,100)"/>
+    <wire from="(660,110)" to="(710,110)"/>
+    <wire from="(660,120)" to="(670,120)"/>
+    <wire from="(660,130)" to="(660,190)"/>
+    <wire from="(660,190)" to="(820,190)"/>
+    <wire from="(660,20)" to="(660,60)"/>
+    <wire from="(660,20)" to="(800,20)"/>
+    <wire from="(660,70)" to="(670,70)"/>
+    <wire from="(660,80)" to="(680,80)"/>
+    <wire from="(660,90)" to="(680,90)"/>
+    <wire from="(670,120)" to="(670,180)"/>
+    <wire from="(670,180)" to="(810,180)"/>
+    <wire from="(670,30)" to="(670,70)"/>
+    <wire from="(670,30)" to="(740,30)"/>
+    <wire from="(680,170)" to="(740,170)"/>
+    <wire from="(680,50)" to="(680,80)"/>
+    <wire from="(680,50)" to="(750,50)"/>
+    <wire from="(680,90)" to="(680,170)"/>
+    <wire from="(690,100)" to="(690,160)"/>
+    <wire from="(690,160)" to="(750,160)"/>
+    <wire from="(710,110)" to="(710,150)"/>
+    <wire from="(710,150)" to="(760,150)"/>
+    <wire from="(740,130)" to="(740,170)"/>
+    <wire from="(740,30)" to="(740,70)"/>
+    <wire from="(750,130)" to="(750,160)"/>
+    <wire from="(750,50)" to="(750,70)"/>
+    <wire from="(760,130)" to="(760,150)"/>
+    <wire from="(760,40)" to="(760,70)"/>
+    <wire from="(760,40)" to="(820,40)"/>
+    <wire from="(770,130)" to="(770,150)"/>
+    <wire from="(770,150)" to="(800,150)"/>
+    <wire from="(770,50)" to="(770,70)"/>
+    <wire from="(770,50)" to="(810,50)"/>
+    <wire from="(800,20)" to="(800,150)"/>
+    <wire from="(810,50)" to="(810,180)"/>
+    <wire from="(820,40)" to="(820,190)"/>
+  </circuit>
+  <vhdl appearance="logisim_evolution" name="Assignment2_5">
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Assignment2_5 is
+    port (
+        vt        : in  std_logic_vector(12 downto 0);
+        en        : in  std_logic;
+        count_out : out std_logic_vector(3 downto 0);
+        display   : out std_logic_vector(7 downto 0)
+    );
+end entity Assignment2_5;
+
+architecture bhv of Assignment2_5 is
+begin
+    process(vt, en)
+        variable count : integer range 0 to 15;
+    begin
+        count := 0;
+
+        for i in vt'range loop
+            if vt(i) = '1' then
+                count := count + 1;
+            end if;
+        end loop;
+
+        count_out &lt;= std_logic_vector(
+            to_unsigned(count, 4)
+        );
+
+
+        if en = '0' then
+            display &lt;= "00000000";
+        else
+            case count is
+                when 0  =&gt; display &lt;= "11111100"; -- 0
+                when 1  =&gt; display &lt;= "01100000"; -- 1
+                when 2  =&gt; display &lt;= "11011010"; -- 2
+                when 3  =&gt; display &lt;= "11110010"; -- 3
+                when 4  =&gt; display &lt;= "01100110"; -- 4
+                when 5  =&gt; display &lt;= "10110110"; -- 5
+                when 6  =&gt; display &lt;= "10111110"; -- 6
+                when 7  =&gt; display &lt;= "11100000"; -- 7
+                when 8  =&gt; display &lt;= "11111110"; -- 8
+                when 9  =&gt; display &lt;= "11110110"; -- 9
+
+                when 10 =&gt; display &lt;= "11101110"; -- A
+                when 11 =&gt; display &lt;= "00111110"; -- b
+                when 12 =&gt; display &lt;= "10011100"; -- C
+                when 13 =&gt; display &lt;= "01111010"; -- d
+                when 14 =&gt; display &lt;= "10011110"; -- E
+                when 15 =&gt; display &lt;= "10001110"; -- F
+
+                when others =&gt;
+                    display &lt;= "00000000";
+            end case;
+        end if;
+    end process;
+end architecture bhv;
+</vhdl>
+</project>
